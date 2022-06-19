@@ -1,0 +1,52 @@
+
+#include<stdio.h>
+
+int main(){
+    int arr[] = {5,5,4,3,2}; //{0,1,1,1,1,1}
+    
+    int freqArr[6]={0};
+    int sumArr[6]={0}; 
+    int outputArr[5];
+    int i;
+    int j;
+    int max = arr[0];
+    int sum = freqArr[0];
+    printf("Before sorting array\n");
+    for(int i = 0 ; i < 5 ; i++){
+        printf("%d " , arr[i]);
+    }
+    // first loop to find the maximum number in the array.
+    for(i=1;i<5;i++){
+        if(arr[i] > max){
+            max = arr[i];
+        }
+    }
+    //to create the frequency array.
+    for(i=0;i<5;i++){
+        freqArr[arr[i]]+=1;
+       
+    }
+ 
+    for(i = 0 ; i < 6 ; i++){
+        sum += freqArr[i]; 
+        sumArr[i] = sum;
+    }
+   
+     for(i=0;i<5;i++){
+            sumArr[arr[i]]-=1;
+            outputArr[sumArr[arr[i]]]=arr[i];
+        }
+  
+
+    printf("\nAfter sorting array\n");
+    for(int i = 0 ; i < 5 ; i++){
+        printf("%d " , outputArr[i]);
+    }
+    return 0;
+}
+
+    
+    
+
+
+
