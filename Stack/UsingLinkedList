@@ -1,0 +1,134 @@
+
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node*next;
+};
+struct node *top=NULL;
+struct node *temp=NULL;
+int numbers;
+    void push();
+    void pop();
+    void display();
+    void peek();
+    void max();
+    void min();
+    void search();
+    void count();
+int main()
+{
+    int choice;
+    int going=1;
+    while(going==1){
+    printf("enter the choice \n 1.push 2.pop 3.peek 4.display 5.search 6.max element 7. min element 8.numbers of item 9.exit");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+        
+    case 1:
+           push();
+           break;
+    case 2:
+         pop();
+         break;
+    case 3:
+         peek();
+         break;
+    case 4:
+        display();
+        break;
+    case 5:
+    search();
+    break;
+    case 6:
+        max();
+        break;
+    case 7:
+      min();
+      break;
+     case 8: 
+     count();
+     break;
+    case 9:
+    printf("thankyou");
+    exit(0);
+    }
+   }
+
+    return 0;
+}
+
+void push(){
+   struct node*newnode;
+   newnode=(struct node*)malloc(sizeof(struct node));
+   printf("enter the data");
+   scanf("%d",&newnode->data);
+   numbers++;
+   newnode->next=top;
+   top=newnode;
+}
+void pop(){
+    if(top==NULL){
+        printf("stack is empty\n");
+    }
+    else{
+    printf("deleted item is %d\n",top->data);
+    temp=top;
+    top=top->next;
+    free(temp);
+    }
+}
+void peek(){
+    printf("top most item is %d\n",top->data);
+}
+void display(){
+    temp=top;
+    while(temp!=NULL){
+        printf("data is %d\n",temp->data);
+        temp=temp->next;
+    }
+}
+void search(){
+    int s;
+    int count=0;
+    printf("enter the element you want to search");
+    scanf("%d",&s);
+    temp=top;
+    while(temp!=NULL){
+        if(s==temp->data){
+            printf("element found\n");
+            count++;
+            break;
+        }
+        temp=temp->next;
+    }
+    if(count==0){
+        printf("not found\n");
+    }
+}
+void max(){
+    int max=top->data;
+    temp=top;
+    while(temp!=NULL){
+        if(temp->data>max){
+            max=temp->data;
+        }
+        temp=temp->next;
+    }
+    printf("max element is: %d\n",max);
+}
+void min(){
+    int min=top->data;
+    temp=top;
+    while(temp!=NULL){
+        if(temp->data<min){
+            min=temp->data;
+        }
+        temp=temp->next;
+    }
+    printf("min element is: %d\n",min);
+}
+void count(){
+    printf("total number of items %d\n",numbers);
+}
