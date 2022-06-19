@@ -1,0 +1,115 @@
+
+#include <stdio.h>
+#include<stdlib.h>
+int top=-1, stack[5],i;
+    void push();
+    void display();
+    void pop();
+    void peek();
+    void display();
+   void min();
+   void max();
+   void search();
+int main()
+{
+    int choice;
+    int going=1;
+    while(going==1){
+    printf("enter the choice \n 1.push 2.pop 3.peek 4.display 5.search 6.max element 7. min element 8.exit");
+    scanf("%d",&choice);
+    switch(choice)
+    {
+        
+    case 1:
+           push();
+           break;
+    case 2:
+         pop();
+         break;
+    case 3:
+         peek();
+         break;
+    case 4:
+        display();
+        break;
+    case 5:
+        search();
+        break;
+    case 6:
+        max();
+        break;
+    case 7:
+      min();
+      break;
+    case 8:
+    printf("thankyou");
+    exit(0);
+    }
+   }
+    return 0;
+}
+void push(){
+    int x;
+    printf("Enter data");
+    scanf("%d", &x);
+    top=top+1;
+    stack[top]=x;
+}
+void pop(){
+    int item;
+    item=stack[top];
+    if(top==-1){
+        printf("stack is empty\n");
+    }
+    else{
+    top=top-1;
+    printf("Deleted item is %d\n" ,item);
+    }
+}
+void peek(){
+    printf("topmost element is %d\n" , stack[top]);
+}
+void display(){
+    int i;
+    for(i=top;i>=0;i--)
+    {
+        printf("Data is %d \n", stack[i]);
+    }
+}
+void max(){
+    int max;
+    max=stack[top];
+    for(i=top-1; i>=0; i--){
+        if (stack[i]>max){
+            max=stack[i];
+        }
+    }
+    printf("Max elment of stack is : %d\n", max);
+}
+void min(){
+    int min;
+    min=stack[top];
+    while(top!=-1){
+        if (stack[i]<min){
+            min=stack[i];
+        }
+        top-=1;
+    }
+    printf("Min elment of stack is : %d\n", min);
+}
+void search(){
+    int y;
+    printf("\nEnter element to search:");
+    scanf("%d",&y);
+    for(i=top;i>=0;i--){
+        if(y==stack[i]){
+            printf("\nElement is at: %d \n", i);
+            break;
+        }
+        else if(i==0){
+            printf("\nEntered elementis not found\n");
+        }
+    }
+}
+
+
