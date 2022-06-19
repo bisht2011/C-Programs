@@ -1,0 +1,149 @@
+                                                              //DELETION AT FIRST\\
+
+#include <stdio.h>
+#include <stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+void display(struct node*head);
+int main()
+{
+    struct node *start=NULL,*temp=NULL,*newnode,*tail;
+    int i=0;
+   while(i<5){
+       i++;
+       newnode=(struct node*)malloc(sizeof(struct node));
+       printf("enter the data");
+       scanf("%d",&newnode->data);
+       
+       if(start==NULL){
+           start=newnode;
+           temp=newnode;
+       }
+       else{
+           temp->next=newnode;
+           temp=newnode;
+       }
+   }
+   display(start);
+ tail=start;
+ start=tail->next;
+ free(tail);
+   display(start);
+    return 0;
+}
+void display(struct node* temp){
+    while(temp!=NULL){
+        printf(" %d -> ",temp->data);
+        temp=temp->next;
+    }
+    printf("NULL\n");
+}
+
+
+                                                                    //DELETION AT LAST\\
+
+
+#include <stdio.h>
+#include <stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+void display(struct node*head);
+int main()
+{
+    struct node *start=NULL,*temp=NULL,*newnode,*tail=NULL,*prev;
+    int i=0;
+   while(i<5){
+       i++;
+       newnode=(struct node*)malloc(sizeof(struct node));
+       printf("enter the data");
+       scanf("%d",&newnode->data);
+       
+       if(start==NULL){
+           start=newnode;
+           temp=newnode;
+       }
+       else{
+           temp->next=newnode;
+           temp=newnode;
+       }
+   }
+   display(start);
+   temp=start;
+  while(temp->next->next!=NULL){
+      temp=temp->next;
+  }
+tail=temp->next;
+temp->next=NULL;
+free(tail);
+   display(start);
+    return 0;
+}
+void display(struct node* temp){
+    while(temp!=NULL){
+        printf(" %d -> ",temp->data);
+        temp=temp->next;
+    }
+    printf("NULL\n");
+}
+
+
+                                                             //DELETION AT ANY POSITION\\
+
+
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+  int data;
+  struct node *next;
+};
+void display(struct node*start);
+int main()
+{
+    struct node *newnode,*head=NULL,*tail=NULL,*temp;
+    int i=0,pos;
+    while(i<5){
+        i++;
+        newnode=(struct node*)malloc(sizeof(struct node));
+        printf(" enter the value ");
+        scanf("%d",&newnode->data);
+        
+        if(head==NULL){
+            head=newnode;
+            tail=newnode;
+        }
+        else{
+            tail->next=newnode;
+            tail=newnode;
+        }
+    }
+display(head);
+tail=head;
+printf("\ninsert the position at which u want to delete\n");
+scanf("%d",&pos);
+int k=1;
+while(k<pos-1){
+    tail=tail->next;
+    k++;
+}
+temp=tail->next;
+tail->next=temp->next;
+free(temp);
+display(head);
+    return 0;
+}
+void display(struct node* tail){
+    while(tail!=NULL){
+        printf(" %d -> ", tail->data);
+        tail=tail->next;
+    }
+    printf("NULL");
+}
+
+
+
+
+
