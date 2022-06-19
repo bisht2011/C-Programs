@@ -1,0 +1,78 @@
+
+#include <stdio.h>
+#define n 6
+int queue[n],front=-1,rear=-1;
+void enqueue(int x);
+void dequeue();
+void display();
+void peek();
+
+int main()
+{
+   int go=1;
+   int choice;
+   int num;
+   while(go==1){
+       printf("enter the choice\n 1.enqueue 2.dequeue 3.display 4.peek 5.exit");
+       scanf("%d",&choice);
+       
+     switch(choice){
+         case 1:
+          printf("enter the element");
+          scanf("%d",&num);
+          enqueue(num);
+          break;
+         case 2:
+          dequeue();
+          break;
+         case 3:
+          display();
+          break;
+         case 4:
+         peek();
+          break;
+         case 5:
+         go==2;
+         break;
+     }
+   }
+
+    return 0;
+}
+void enqueue(int x){
+    if(rear==n-1){
+        printf("overflow");
+    }
+    else if(front==-1&&rear==-1){
+        front=0;
+        rear=0;
+        queue[rear]=x;
+    }
+    else{
+        rear+=1;
+        queue[rear]=x;
+    }
+}
+void dequeue(){
+    if(front==-1&&rear==-1){
+        printf("underflow");
+    }
+    else if(front==rear){
+        front=-1;
+        rear=-1;
+    }
+    else{
+    printf("deleted element: %d\n",queue[front]);
+    front=front+1;
+    }
+}
+void display(){
+    int start=front;
+   while(start<=rear){
+        printf("data : %d\n",queue[start]);
+        start++;
+    }
+}
+void peek(){
+    printf("first top element is: %d\n",queue[front]);
+}
