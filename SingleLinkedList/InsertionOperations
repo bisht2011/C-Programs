@@ -1,0 +1,152 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+void display(struct node*head);
+int main()
+{
+    struct node *start=NULL,*temp=NULL,*newnode;
+    int i=0;
+   while(i<5){
+       i++;
+       newnode=(struct node*)malloc(sizeof(struct node));
+       printf("enter the data");
+       scanf("%d",&newnode->data);
+       
+       if(start==NULL){
+           start=newnode;
+           temp=newnode;
+       }
+       else{
+           temp->next=newnode;
+           temp=newnode;
+       }
+   }
+   display(start);
+    return 0;
+}
+void display(struct node*temp){
+while(temp!=NULL){
+    printf("%d -> " ,temp->data);
+    temp=temp->next;
+}
+printf("NULL");
+}
+
+                                                                      
+                                                                      //Insertion At Las\\
+
+#include <stdio.h>
+#include <stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+void display(struct node*head);
+int main()
+{
+    struct node *start=NULL,*temp=NULL,*newnode;
+    int i=0;
+   while(i<5){
+       i++;
+       newnode=(struct node*)malloc(sizeof(struct node));
+       printf("enter the data");
+       scanf("%d",&newnode->data);
+       
+       if(start==NULL){
+           start=newnode;
+           temp=newnode;
+       }
+       else{
+           temp->next=newnode;
+           temp=newnode;
+       }
+   }
+   display(start);
+    newnode=(struct node*)malloc(sizeof(struct node));
+   printf("enter the data u want to insert");
+   scanf("%d",&newnode->data);
+  temp->next=newnode;
+   display(start);
+    return 0;
+}
+void display(struct node* temp){
+    while(temp!=NULL){
+        printf(" %d -> ",temp->data);
+        temp=temp->next;
+    }
+    printf("NULL\n");
+}
+
+                                                                  //Insertion At Any Position\\
+                                                                  /******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#include<stdlib.h>
+struct node{
+  int data;
+  struct node *next;
+};
+void display(struct node*start);
+int main()
+{
+    struct node *newnode,*head=NULL,*tail=NULL;
+    int i=0,pos;
+    while(i<5){
+        i++;
+        newnode=(struct node*)malloc(sizeof(struct node));
+        printf(" enter the value ");
+        scanf("%d",&newnode->data);
+        
+        if(head==NULL){
+            head=newnode;
+            tail=newnode;
+        }
+        else{
+            tail->next=newnode;
+            tail=newnode;
+        }
+    }
+display(head);
+tail=head;
+printf("\ninsert the position at which u want to insert\n");
+scanf("%d",&pos);
+ newnode=(struct node*)malloc(sizeof(struct node));
+printf(" enter the value ");
+scanf("%d",&newnode->data);
+if(pos==1){
+    newnode->next=head;
+    head=newnode;
+    
+}
+else{
+int k=1;
+while(k<pos){
+    tail=tail->next;
+    k++;
+}
+newnode->next=tail->next;
+tail->next=newnode;
+}
+display(head);
+
+    return 0;
+}
+void display(struct node* tail){
+    while(tail!=NULL){
+        printf(" %d -> ", tail->data);
+        tail=tail->next;
+    }
+    printf("NULL");
+}
+
+
+
