@@ -74,7 +74,6 @@ void EnqueFront(int x)
         deque[f] = x;
     }
 }
-
 // insert_rear function will insert the value from the rear
 void EnqueRear(int x)
 {
