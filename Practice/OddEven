@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main()
+{
+    int arr[10],n,odd,even,count;
+    printf("enter the size");
+    scanf("%d",&n);
+    printf("enter the values");
+    for(int i=0;i<n;i++){
+    scanf("%d",&arr[i]);
+    }
+    for(int i=0;i<n;i++){
+        if(arr[i]%2==0){
+          count++;
+        }
+    }
+   int evene[count];
+   int odde[n-count];
+   for(int i=0;i<n;i++){
+       if(arr[i]%2==0)
+        evene[even++] = arr[i];
+       
+        else
+        odde[odd++]=arr[i];
+}
+printf("\neven array : ");
+        for(int i = 0 ; i < count ; i++){
+        printf("%d  " , evene[i]);
+    }
+    printf("\nodd array : ");
+    for(int i = 0 ; i < n - count; i++){
+        printf("%d  " , odde[i]);
+    }
+        
+   
+    return 0;
+}
