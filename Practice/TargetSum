@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+int main()
+{
+     int a[10],n,temp,flag;
+    printf("enter the size of the array");
+    scanf("%d",&n);
+    printf("enter the values");
+    for(int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    for(int i=0;i<n;i++){
+        printf("%d\t",a[i]);
+    }
+    
+    for(int i=0;i<n;i++){//sorting
+        flag=0;
+        for(int j=0;j<n-i-1;j++){
+            if(a[j]>a[j+1]){
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+                flag=1;
+            }
+            flag=1;
+        }
+        if(flag==0)
+        break;
+    }
+    printf("after sorting\n");
+     for(int i=0;i<n;i++){
+        printf("%d\t",a[i]);
+    }
+    int target,left=0,right=n-1;
+    printf("\nenter the target");
+    scanf("%d",&target);
+    
+    while(left < right){
+        if(a[left] + a[right] == target){
+            printf("\n{ %d , %d }", left ,right);
+            break;
+        }
+        else if(a[left] + a[right] > target){
+            right--;
+        }
+        else{
+            left++;
+        }
+    }
+
+    return 0;
+}
