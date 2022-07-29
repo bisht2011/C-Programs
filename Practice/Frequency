@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main()
+{
+int arr[10],n,max,sum=0;
+    
+   printf("enter the size of the array");
+   scanf("%d",&n);
+   printf("enter the elements");
+   for(int i=0;i<n;i++){
+       scanf("%d",&arr[i]);
+   }
+    for(int i=0;i<n;i++){
+      if(arr[i]>max){
+          max=arr[i];
+      }
+   }
+   int freq[max+1];
+    for(int i=0;i<max+1;i++){
+      freq[i]=0;
+   }
+   for(int i=0;i<n;i++){
+      freq[arr[i]]+=1;
+   }
+   
+    
+    for(int i = 0 ; i < max + 1 ; i++){
+       if(freq[i]>0){
+           printf("\n the value %d is occuring %d times",i,freq[i]);
+       }
+    }
+ 
+   
+
+    return 0;
+}
