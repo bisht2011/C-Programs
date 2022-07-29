@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[10],n,k;
+    printf("enter the size of the array");
+    scanf("%d",&n);
+    printf("enter the values");
+    for(int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    for(int i=0;i<n;i++){
+        printf("%d\t",a[i]);
+    }
+    printf("\nenter the location from u wanna delete");
+    scanf("%d",&k);
+    n-=1;
+    for(int i=k-1;i<=n;i++){
+        a[i]=a[i+1];
+    }
+    for(int i=0;i<n;i++){
+        printf("%d\t",a[i]);
+    }
+    
+    return 0;
+}
